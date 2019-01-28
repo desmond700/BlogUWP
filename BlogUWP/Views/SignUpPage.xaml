@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="BlogUWP.Views.SignUpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BlogUWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:fa="using:FontAwesome.UWP"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF296699"/>
+                <GradientStop Color="#FFA7D7FF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ScrollViewer>
+            <RelativePanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,100,0,100" >
+                <fa:FontAwesome x:Name="user_icon" Icon="UserOutline" FontSize="120" RelativePanel.AlignTopWithPanel="True"  RelativePanel.AlignHorizontalCenterWithPanel="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                <TextBlock x:Name="title_txt" Text="Create your account" RelativePanel.Below="user_icon" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0" TextWrapping="Wrap" FontSize="22" FontFamily="Segoe UI Semibold"/>
+                <StackPanel RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="title_txt" >
+                    <StackPanel x:Name="fname_field"  Margin="0,50,0,0" >
+                        <TextBlock HorizontalAlignment="Left" Text="Firstname" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" FontFamily="Global Sans Serif"/>
+                        <TextBox HorizontalAlignment="Left" RelativePanel.AlignHorizontalCenterWithPanel="True" Width="667" PlaceholderText="Enter your firstname" />
+                    </StackPanel>
+                    <StackPanel x:Name="lname_field" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="fname_field" Margin="0,50,0,0" >
+                        <TextBlock HorizontalAlignment="Left" Text="Lastname" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" FontFamily="Global Sans Serif"/>
+                        <TextBox HorizontalAlignment="Left" RelativePanel.AlignHorizontalCenterWithPanel="True" Width="667" PlaceholderText="Enter your lastname" />
+                    </StackPanel>
+                    <StackPanel x:Name="username_field" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="lname_field" Margin="0,50,0,0" >
+                        <TextBlock HorizontalAlignment="Left" Text="Username" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" FontFamily="Global Sans Serif"/>
+                        <TextBox HorizontalAlignment="Left" RelativePanel.AlignHorizontalCenterWithPanel="True" Width="667" PlaceholderText="Enter your username" />
+                    </StackPanel>
+                    <StackPanel x:Name="email_field" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="username_field" Margin="0,50,0,0" >
+                        <TextBlock HorizontalAlignment="Left" Text="Email" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" FontFamily="Global Sans Serif"/>
+                        <TextBox HorizontalAlignment="Left" RelativePanel.AlignHorizontalCenterWithPanel="True" Width="667" PlaceholderText="Enter your email" />
+                    </StackPanel>
+                    <StackPanel x:Name="dob_field" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="email_field" Margin="0,50,0,0" >
+                        <TextBlock HorizontalAlignment="Left" Text="Date of birth" TextWrapping="Wrap" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" FontFamily="Global Sans Serif" Margin="0,0,0,0"/>
+                        <DatePicker HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="296"/>
+                    </StackPanel>
+                    <RelativePanel x:Name="image_field" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="confirmpass" Margin="0,30,0,0" >
+                        <TextBlock x:Name="file_txt" RelativePanel.AlignVerticalCenterWithPanel="True" Text="Select image file:" TextWrapping="Wrap" FontWeight="Bold" FontSize="18" FontFamily="Global Sans Serif"/>
+                        <Button Content="Choose" HorizontalAlignment="Left" RelativePanel.RightOf="file_txt" Margin="10,0,0,0" />
+                    </RelativePanel>
+                    <StackPanel x:Name="password" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="dob_field"  Margin="0,30,0,0" >
+                        <TextBlock HorizontalAlignment="Left" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" FontFamily="Global Sans Serif"/>
+                        <PasswordBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="667" PlaceholderText="Enter your password"/>
+                    </StackPanel>
+                    <StackPanel x:Name="confirmpass" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="password"  Margin="0,30,0,0" >
+                        <TextBlock HorizontalAlignment="Left" Text="Confirm Password" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" FontFamily="Global Sans Serif"/>
+                        <PasswordBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="667" PlaceholderText="Confrim your password"/>
+                    </StackPanel>
+                    <Button Content="Signup" HorizontalAlignment="Stretch" Margin="608,20,0,0" VerticalAlignment="Top"/>
+                </StackPanel>
+            </RelativePanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
