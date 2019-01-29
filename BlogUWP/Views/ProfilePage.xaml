@@ -5,6 +5,7 @@
     xmlns:local="using:BlogUWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:fa="using:FontAwesome.UWP"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -13,17 +14,55 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <RelativePanel Grid.Row="0" x:Name="header" VerticalAlignment="Center" >
+        <RelativePanel Grid.Row="0" x:Name="header" VerticalAlignment="Center" Padding="0,20,0,20" >
             <RelativePanel.Background>
                 <AcrylicBrush TintColor="#CCB0D1E8"/>
             </RelativePanel.Background>
-            <Image HorizontalAlignment="Center" Height="auto" Margin="50,0,0,0" RelativePanel.AlignVerticalCenterWithPanel="True" Width="auto" Source="/Assets/Square150x150Logo.png"/>
+            <Image HorizontalAlignment="Center" Height="auto" Margin="50,0,0,0" RelativePanel.AlignVerticalCenterWithPanel="True" Width="auto" Source="/Assets/user-icon-png-person-user-profile-icon-20.png"/>
 
         </RelativePanel>
-        <RelativePanel Grid.Row="1" HorizontalAlignment="Stretch" >
-            <TextBlock RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,251,0,0" Text="Profile Page" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
-
-        </RelativePanel>
-
+        <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Padding="20,50,20,50" >
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Background="#FFC9C9C9" HorizontalAlignment="Stretch">
+                    <fa:FontAwesome Icon="User" Margin="10" />
+                    <TextBlock Margin="10,0,0,0" Text="About" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="18"/>
+                </StackPanel>
+                <TextBlock />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Birthday:" FontWeight="Bold" Foreground="#FF363333" />
+                    <TextBlock Text="n/a" Margin="10,0,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Language/s:" FontWeight="Bold" Foreground="#FF363333" />
+                    <TextBlock Text="n/a" Margin="10,0,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Date Joined:" FontWeight="Bold" Foreground="#FF363333" />
+                    <TextBlock Text="n/a" Margin="10,0,0,0" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Margin="0,50,0,0">
+                <StackPanel Orientation="Horizontal" Background="#FFC9C9C9" HorizontalAlignment="Stretch">
+                    <fa:FontAwesome Icon="Envelope" Margin="10" />
+                    <TextBlock Margin="10,0,0,0" Text="Contact" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="18"/>
+                </StackPanel>
+                <TextBlock />
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <fa:FontAwesome Icon="EnvelopeOutline" Margin="5,0,10,0" />
+                    <TextBlock Text="Email:" FontWeight="Bold" Foreground="#FF363333" />
+                    <TextBlock Text="n/a" Margin="10,0,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <fa:FontAwesome Icon="FacebookOfficial" Margin="5,0,10,0" />
+                    <TextBlock Text="Facebook:" FontWeight="Bold" Foreground="#FF363333" />
+                    <TextBlock Text="n/a" Margin="10,0,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <fa:FontAwesome Icon="Github" Margin="5,0,10,0" />
+                    <TextBlock Text="Github:" FontWeight="Bold" Foreground="#FF363333" />
+                    <TextBlock Text="n/a" Margin="10,0,0,0" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

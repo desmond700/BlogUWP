@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlogUWP.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -52,11 +53,16 @@ namespace BlogUWP.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            AppFrame.Navigate(typeof(ProfilePage), e.Parameter);
-            /*if (e.Parameter is Episode)
+            if (e.Parameter is User user)
             {
+                username_txt.Content = user.Username;
+                if(user.Image != null)
+                {
+                    userImg.UriSource = new Uri("ms-appx:///Assets/" + user.Image);
+                }
+                
                 AppFrame.Navigate(typeof(ProfilePage), e.Parameter);
-            }*/
+            }
         }
 
         private void AppNavFrame_Navigated(object sender, NavigationEventArgs e)

@@ -18,9 +18,9 @@
         <NavigationView IsSettingsVisible="True" x:Name="navview" AlwaysShowHeader="False" ItemInvoked="Navview_ItemInvoked" >
             
             <NavigationView.MenuItems>
-                <NavigationViewItem Content="Browse videos" >
+                <NavigationViewItem x:Name="username_txt" Content="Browse videos" >
                     <NavigationViewItem.Icon>
-                        <BitmapIcon UriSource="ms-appx:///Assets/StoreLogo.png" Width="98" Height="98" IsTapEnabled="False" />
+                        <BitmapIcon x:Name="userImg" UriSource="ms-appx:///Assets/user-icon-png-person-user-profile-icon-20.png" Width="98" Height="98" IsTapEnabled="False" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItemSeparator/>

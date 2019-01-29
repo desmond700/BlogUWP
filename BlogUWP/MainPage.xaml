@@ -20,16 +20,16 @@
             <TextBlock x:Name="title_txt" Text="Sign in to your account" RelativePanel.Below="user_icon" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,10,0,0" TextWrapping="Wrap" FontSize="22" FontFamily="Segoe UI Semibold" Foreground="#FF232323"/>
             <StackPanel x:Name="name_field" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="title_txt" Margin="0,50,0,0" >
                 <TextBlock HorizontalAlignment="Left" Text="Username" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" FontFamily="Global Sans Serif"/>
-                <TextBox HorizontalAlignment="Left" RelativePanel.AlignHorizontalCenterWithPanel="True" Width="667" PlaceholderText="Enter your username" />
+                <TextBox x:Name="username_txt" HorizontalAlignment="Left" RelativePanel.AlignHorizontalCenterWithPanel="True" Width="667" PlaceholderText="Enter your username" />
             </StackPanel>
             <StackPanel x:Name="pass_field" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="name_field"  Margin="0,30,0,0" >
                 <TextBlock HorizontalAlignment="Left" Text="Password" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" FontFamily="Global Sans Serif"/>
-                <PasswordBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="667" PlaceholderText="Enter your password"/>
+                <PasswordBox  x:Name="password_txt" HorizontalAlignment="Left" VerticalAlignment="Top" Width="667" PlaceholderText="Enter your password"/>
                 <RelativePanel>
                     <HyperlinkButton x:Name="forgtbtn" Content="Forgot Password?" HorizontalAlignment="Center" Height="32" VerticalAlignment="Center" Width="125" Margin="0,0,0,0" Foreground="#FF020201"/>
                     <HyperlinkButton Content="Need and account?" RelativePanel.RightOf="forgtbtn" RelativePanel.AlignRightWithPanel="True" Height="32" VerticalAlignment="Top" Width="125" Margin="415,0,0,0" HorizontalAlignment="Left" Click="HyperlinkButton_Click" Foreground="#FF020201"/>
                 </RelativePanel>
-                <Button Content="Signin" HorizontalAlignment="Stretch" Margin="608,10,0,0" VerticalAlignment="Top" Click="Button_Click" Background="#3300020F" Foreground="#FF0C0404"/>
+                <Button Content="Signin" HorizontalAlignment="Stretch" Margin="608,10,0,0" VerticalAlignment="Top" Click="Signin_Click" Background="#3300020F" Foreground="#FF0C0404"/>
             </StackPanel>
 
         </RelativePanel>
