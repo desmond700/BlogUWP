@@ -18,7 +18,8 @@
             <RelativePanel.Background>
                 <AcrylicBrush TintColor="#CCB0D1E8"/>
             </RelativePanel.Background>
-            <Image HorizontalAlignment="Center" Height="auto" Margin="50,0,0,0" RelativePanel.AlignVerticalCenterWithPanel="True" Width="auto" Source="/Assets/user-icon-png-person-user-profile-icon-20.png"/>
+            <Image x:Name="userimg" Height="auto" Margin="50,0,0,0" RelativePanel.AlignVerticalCenterWithPanel="True" Width="auto" Source="/Assets/user-icon-png-person-user-profile-icon-20.png"/>
+            <TextBlock x:Name="name" RelativePanel.RightOf="userimg"  Text="TextBlock" TextWrapping="Wrap" FontSize="36" FontWeight="Bold" FocusVisualPrimaryBrush="#FF767676" Foreground="#FF403D3D" FontFamily="Global Sans Serif" Margin="20,0,0,0"/>
 
         </RelativePanel>
         <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" Padding="20,50,20,50" >
@@ -28,17 +29,17 @@
                     <TextBlock Margin="10,0,0,0" Text="About" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="18"/>
                 </StackPanel>
                 <TextBlock />
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <TextBlock Text="Birthday:" FontWeight="Bold" Foreground="#FF363333" />
-                    <TextBlock Text="n/a" Margin="10,0,0,0" />
+                    <TextBlock x:Name="bday_txt" Text="n/a" Margin="10,0,0,0" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <TextBlock Text="Language/s:" FontWeight="Bold" Foreground="#FF363333" />
-                    <TextBlock Text="n/a" Margin="10,0,0,0" />
+                    <TextBlock x:Name="languages_txt" Text="n/a" Margin="10,0,0,0" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <TextBlock Text="Date Joined:" FontWeight="Bold" Foreground="#FF363333" />
-                    <TextBlock Text="n/a" Margin="10,0,0,0" />
+                    <TextBlock x:Name="dateJoined_txt" Text="n/a" Margin="10,0,0,0" />
                 </StackPanel>
             </StackPanel>
             <StackPanel Margin="0,50,0,0">
@@ -50,17 +51,32 @@
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <fa:FontAwesome Icon="EnvelopeOutline" Margin="5,0,10,0" />
                     <TextBlock Text="Email:" FontWeight="Bold" Foreground="#FF363333" />
-                    <TextBlock Text="n/a" Margin="10,0,0,0" />
+                    <TextBlock x:Name="email_txt" Text="n/a" Margin="10,0,0,0" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <fa:FontAwesome Icon="FacebookOfficial" Margin="5,0,10,0" />
                     <TextBlock Text="Facebook:" FontWeight="Bold" Foreground="#FF363333" />
-                    <TextBlock Text="n/a" Margin="10,0,0,0" />
+                    <TextBlock x:Name="facebook_txt" Text="n/a" Margin="10,0,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <fa:FontAwesome Icon="TwitterSquare" Margin="5,0,10,0" />
+                    <TextBlock Text="Twitter:" FontWeight="Bold" Foreground="#FF363333" />
+                    <TextBlock x:Name="twitter_txt" Text="n/a" Margin="10,0,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <fa:FontAwesome Icon="LinkedinSquare" Margin="5,0,10,0" />
+                    <TextBlock Text="Linkedin:" FontWeight="Bold" Foreground="#FF363333" />
+                    <TextBlock x:Name="linkedin_txt" Text="n/a" Margin="10,0,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <fa:FontAwesome Icon="Instagram" Margin="5,0,10,0" />
+                    <TextBlock Text="Instagram:" FontWeight="Bold" Foreground="#FF363333" />
+                    <TextBlock x:Name="instagram_txt" Text="n/a" Margin="10,0,0,0" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <fa:FontAwesome Icon="Github" Margin="5,0,10,0" />
                     <TextBlock Text="Github:" FontWeight="Bold" Foreground="#FF363333" />
-                    <TextBlock Text="n/a" Margin="10,0,0,0" />
+                    <TextBlock x:Name="github_txt" Text="n/a" Margin="10,0,0,0" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>
