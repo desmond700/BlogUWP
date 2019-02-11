@@ -8,7 +8,19 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
+    <Grid Padding="50">
+        <StackPanel HorizontalAlignment="Center" Margin="0, 30">
+            <TextBlock x:Name="title_txt" Text="Post title" FontSize="24" FontWeight="SemiBold" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="By" Margin="0,0,5,0" />
+                <TextBlock x:Name="arthor_name" Text="Desmond Wallace" FontSize="13" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,20">
+                <TextBlock x:Name="date" Text="Date" Margin="0,0,70,0" />
+                <TextBlock x:Name="category" Text="Category"/>
+            </StackPanel>
+            <Image x:Name="post_featured_img" Source="/Assets/patrick-fore-381200-unsplash.3589402b057a4618bee5d17ff8ae3d1f-864x419.jpg" Height="500" Margin="0,0,0,15" />
+            <TextBlock x:Name="article_txt" Text="article" TextWrapping="Wrap" />
+        </StackPanel>
     </Grid>
 </Page>

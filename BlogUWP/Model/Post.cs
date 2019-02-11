@@ -1,4 +1,4 @@
-﻿using SQLite;
+﻿using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
@@ -27,19 +27,14 @@ namespace BlogUWP.Model
 
         public string Category { get; set; }
 
-        public int Post_type { get; set; }
-
         public int Post_like_count { get; set; }
 
         public int Post_comment_count { get; set; }
 
-        public bool Post_has_article { get; set; }
-
         [ForeignKey(typeof(User))]
         public int User_id { get; set; }
 
-        [OneToMany(CascadeOperations = CascadeOperation.CascadeDelete)]
-        public List<Comment> Comments { get; set; }
-
+        //[OneToMany(CascadeOperations = CascadeOperation.CascadeDelete)]
+        //public List<Comment> Comments { get; set; }
     }
 }

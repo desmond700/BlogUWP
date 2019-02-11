@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using System.Threading.Tasks;
+ 
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
@@ -31,6 +31,9 @@ namespace BlogUWP.Views
     /// </summary>
     public sealed partial class SignUpPage : Page
     {
+        StorageFile file;
+        //public static string DB_PATH = Path.Combine(Path.Combine(ApplicationData.Current.LocalFolder.Path, "BlogManager.sqlite"));
+
         public SignUpPage()
         {
             this.InitializeComponent();
@@ -44,33 +47,31 @@ namespace BlogUWP.Views
             openPicker.FileTypeFilter.Add(".jpg");
             openPicker.FileTypeFilter.Add(".jpeg");
             openPicker.FileTypeFilter.Add(".png");
-            StorageFile file = await openPicker.PickSingleFileAsync();
-            if (file != null)
-            {
-                filename_txt.Text = file.Name;
-
-                StorageFolder appInstalledFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
-
-                StorageFolder assets = await appInstalledFolder.GetFolderAsync("Assets");
-                //var files = await assets.GetFilesAsync();
-                await file.CopyAsync(assets, file.Name, NameCollisionOption.ReplaceExisting);
-                Debug.WriteLine("assets: " + assets.Path);
-            }
-            else
-            {
-                filename_txt.Text = "Try Again..";
-            }
+            file = await openPicker.PickSingleFileAsync();
+            filename_txt.Text = file.Name;
         }
 
         private async void SignupBtn_Click(object sender, RoutedEventArgs e)
         {
-            
             DatabaseHelper Db_Helper = new DatabaseHelper();
+
+            /*using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), DB_PATH))
+            {
+                conn.DropTable<Post>();
+            }*/
 
             if (fname_txt.Text != "" && lname_txt.Text != "" && username_txt.Text != "" &&
                 email_txt.Text != "" && password_txt.Password != "" &&
                 confirmPass_txt.Password != "")
             {
+
+                if (file != null)
+                {
+                    StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                    //var files = await assets.GetFilesAsync();
+                    //await file.CopyAsync(storageFolder, file.Name, NameCollisionOption.ReplaceExisting);
+                }
+                
                 var user = new User()
                 {
                     Firstname = fname_txt.Text,
@@ -78,10 +79,10 @@ namespace BlogUWP.Views
                     Username = username_txt.Text,
                     Email = email_txt.Text,
                     DateOfBirth = date_picker.SelectedDate ?? null,
-                    Image = null,
+                    Image = file.Name ?? null,
                     Password = password_txt.Password,
                 };
-                Db_Helper.AddUser(user);
+                Db_Helper.Insert(user);
                 Frame.Navigate(typeof(NavigationRoot), user);//after add contact redirect to contact listbox page    
             }
             else

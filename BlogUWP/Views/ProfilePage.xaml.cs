@@ -37,7 +37,7 @@ namespace BlogUWP.Views
                 name.Text = user.Firstname+" "+user.Lastname+"("+user.Username+")";
                 if (user.Image != null)
                 {
-                    userimg.Source = new BitmapImage(new Uri("/Assets/" + user.Image));
+                    userimg.Source = new BitmapImage(new Uri("ms-appdata:///" + user.Image));
                 }
                 if (user.Email != null)
                 {

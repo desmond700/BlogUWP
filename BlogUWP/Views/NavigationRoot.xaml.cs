@@ -26,6 +26,7 @@ namespace BlogUWP.Views
         private static NavigationRoot _instance;
         //private INavigationService _navigationService;
         //private bool hasLoadedPreviously;
+        User user;
 
         public NavigationRoot()
         {
@@ -55,6 +56,7 @@ namespace BlogUWP.Views
             base.OnNavigatedTo(e);
             if (e.Parameter is User user)
             {
+                this.user = user;
                 username_txt.Content = user.Username;
                 if(user.Image != null)
                 {
@@ -72,14 +74,11 @@ namespace BlogUWP.Views
                 case Type c when e.SourcePageType == typeof(ProfilePage):
                     ((NavigationViewItem)navview.MenuItems[3]).IsSelected = true;
                     break;
-                case Type c when e.SourcePageType == typeof(ActivityPage):
-                    ((NavigationViewItem)navview.MenuItems[4]).IsSelected = true;
-                    break;
                 case Type c when e.SourcePageType == typeof(CreatePostPage):
-                    ((NavigationViewItem)navview.MenuItems[6]).IsSelected = true;
+                    ((NavigationViewItem)navview.MenuItems[5]).IsSelected = true;
                     break;
-                case Type c when e.SourcePageType == typeof(ViewPostPage):
-                    ((NavigationViewItem)navview.MenuItems[7]).IsSelected = true;
+                case Type c when e.SourcePageType == typeof(ViewPostsPage):
+                    ((NavigationViewItem)navview.MenuItems[6]).IsSelected = true;
                     break;
 
             }
@@ -99,17 +98,13 @@ namespace BlogUWP.Views
                     //_navigationService.NavigateToPodcastsAsync();
                     AppFrame.Navigate(typeof(ProfilePage));
                     break;
-                case "Activity":
-                    //_navigationService.NavigateToNowPlayingAsync();
-                    AppFrame.Navigate(typeof(ActivityPage));
-                    break;
                 case "Create Post":
                     //_navigationService.NavigateToFavoritesAsync();
-                    AppFrame.Navigate(typeof(CreatePostPage));
+                    AppFrame.Navigate(typeof(CreatePostPage), user);
                     break;
                 case "View Posts":
                     //_navigationService.NavigateToNotesAsync();
-                    AppFrame.Navigate(typeof(ViewPostPage));
+                    AppFrame.Navigate(typeof(ViewPostsPage));
                     break;
          
             }

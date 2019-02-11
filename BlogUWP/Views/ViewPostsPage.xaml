@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="BlogUWP.Views.ViewPostsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BlogUWP.Views"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <controls:DataGrid x:Name="dataGrid1" 
+            Height="600" Margin="12"
+            AutoGenerateColumns="False"
+            AlternatingRowBackground="LightGray"
+            SelectionChanged="DataGrid1_SelectionChanged"
+            ItemsSource="{x:Bind Posts}">
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn 
+                    Header="Post id" 
+                    Width="SizeToHeader"
+                    Binding="{Binding Post_id}" 
+                    FontSize="20" />
+                <controls:DataGridTextColumn 
+                    Header="Title" 
+                    Width="SizeToCells"
+                    Binding="{Binding Post_title}" 
+                    FontSize="20" />
+                <controls:DataGridTextColumn 
+                    Header="Article"
+                    Width="250"
+                    Binding="{Binding Article}">
+                    <controls:DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap" />
+                        </Style>
+                    </controls:DataGridTextColumn.ElementStyle>
+                </controls:DataGridTextColumn>
+                <controls:DataGridTextColumn 
+                    Header="Author"
+                    Width="SizeToCells"
+                    Binding="{Binding Author}" />
+                <controls:DataGridTextColumn 
+                    Header="Post status" 
+                    Width="SizeToHeader"
+                    Binding="{Binding Post_status}" />
+                <controls:DataGridTextColumn 
+                    Header="Comments" 
+                    Width="SizeToHeader"
+                    Binding="{Binding Post_comment_count}" />
+                <controls:DataGridTextColumn 
+                    Header="Category" 
+                    Width="SizeToHeader"
+                    Binding="{Binding Category}" />
+                <controls:DataGridTextColumn 
+                    Header="Date" 
+                    Width="SizeToCells"
+                    Binding="{Binding Post_date}" />
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
+        
+    </Grid>
+</Page>

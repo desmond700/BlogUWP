@@ -9,10 +9,10 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Padding="10,0,10,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="7*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
         <Grid>
@@ -22,31 +22,50 @@
                 <RowDefinition Height="7*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" x:Name="title" Text="Create Post" Margin="20,10,0,0" FontFamily="Global Sans Serif" FontSize="30" />
-            <TextBox Grid.Row="1" x:Name="articleTitle" Margin="20,12,22,12" PlaceholderText="Enter title of article" HorizontalAlignment="Stretch" Height="35" VerticalAlignment="Stretch" />
-            <RichEditBox Grid.Row="2" RelativePanel.Below="articleTitle" Margin="20,30,20,0" HorizontalAlignment="Stretch" Height="400" VerticalAlignment="Top" />
+            <TextBox Grid.Row="1" x:Name="articleTitle" Margin="20,12,22,12" PlaceholderText="Enter title of article" HorizontalAlignment="Stretch" Height="35" VerticalAlignment="Stretch" TextChanged="ArticleTitle_TextChanged" />
+            <RichEditBox x:Name="article" TextChanging="Article_TextChanging" Grid.Row="2" RelativePanel.Below="articleTitle" Margin="20,30,20,0" HorizontalAlignment="Stretch" Height="400" VerticalAlignment="Top" />
 
         </Grid>
         <StackPanel Grid.Column="1" Background="{ThemeResource SystemControlDisabledBaseLowBrush}">
-            <Border BorderThickness="2" BorderBrush="#FFFFD700" Background="#FFFFFFFF">
-                <ListView>
-                    <ListViewHeaderItem Content="Publish" FontSize="19" FontFamily="Global Sans Serif" IsEnabled="False" Margin="0,0,0,0" Width="306" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  />
-
-                    <ListViewItem Margin="10"  IsEnabled="False">
-                        <StackPanel Orientation="Horizontal" Padding="10,0,0,0">
+            <Border BorderThickness="2" Background="#FFFFFFFF">
+                <StackPanel Background="{ThemeResource SystemControlDisabledBaseLowBrush}">
+                    <StackPanel Margin="0,0,0,20"  Padding="10" Background="{ThemeResource FocusVisualWhiteStrokeThemeBrush}">
+                        <TextBlock Text="Publish" FontSize="19" FontFamily="Global Sans Serif" HorizontalAlignment="Left" Padding="0,10,0,10" Width="306"  />
+                        <StackPanel Orientation="Horizontal" Margin="10" Padding="5,0,0,0">
                             <TextBlock Text="Status:" Margin="0,0,4,0" />
                             <TextBlock Text="Not Published" FontWeight="Bold" />
                         </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Margin="10,0,0,10" IsEnabled="False">
-                        <StackPanel Orientation="Horizontal" Padding="10,0,0,0">
+                        <StackPanel Orientation="Horizontal" Margin="10" Padding="5,0,0,0">
                             <TextBlock Text="Visisbility:" Margin="0,0,4,0" />
                             <TextBlock Text="Not visibility" FontWeight="Bold" />
                         </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Margin="10,0,0,0" HorizontalContentAlignment="Right" Padding="0,10,10,10">
-                            <Button Content="Publish post" />
-                    </ListViewItem>
-                </ListView>
+                        <StackPanel Margin="10,0,0,0" Padding="0,10,10,10">
+                            <Button Content="Publish post" HorizontalAlignment="Right" Click="PublishButton_Click" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel  Margin="0,0,0,20" Background="{ThemeResource FocusVisualWhiteStrokeThemeBrush}" Padding="10">
+                        <TextBlock Text="Category" FontSize="19" FontFamily="Global Sans Serif" HorizontalAlignment="Left" Padding="0,10,0,10" Width="306"  />
+                        <ComboBox x:Name="ComboBoxCategory" ItemsSource="{x:Bind categories}" 
+                                SelectionChanged="ComboBox_SelectItemChanged"
+                                Width="200">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel
+                                        Orientation="Vertical">
+                                        <TextBlock Text="{Binding Name}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Background="{ThemeResource FocusVisualWhiteStrokeThemeBrush}" Padding="10">
+                        <TextBlock Text="Feature" FontSize="19" FontFamily="Global Sans Serif" HorizontalAlignment="Left" Padding="0,10,0,10" Width="306"  />
+                        <RelativePanel x:Name="image_field" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="confirmpass" Margin="0,30,0,0" >
+                            <Button x:Name="choose_btn" Content="Choose file" HorizontalAlignment="Left" Margin="10,0,0,0" Click="ImageUploadBtn_Click" />
+                            <TextBlock x:Name="filename_txt" Text="No file selected" RelativePanel.RightOf="choose_btn" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="10,0,0,0" />
+                        </RelativePanel>
+                    </StackPanel>
+                </StackPanel>
             </Border>
         </StackPanel>
     </Grid>

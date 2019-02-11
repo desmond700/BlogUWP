@@ -30,11 +30,6 @@
                         <fa:FontAwesome Icon="UserOutline" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Activity" >
-                    <NavigationViewItem.Icon>
-                        <fa:FontAwesome Icon="BarChartOutline" />
-                    </NavigationViewItem.Icon>
-                </NavigationViewItem>
                 <NavigationViewItemHeader Content="Post" />
                 <NavigationViewItem Content="Create Post" >
                     <NavigationViewItem.Icon>
